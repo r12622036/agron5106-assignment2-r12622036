@@ -1,8 +1,8 @@
 ##### Selecting Language , Changing Function Name
 
-This function takes one argument with two non-zero numeric numbers ("x" and "y").
+##This function takes one argument with two non-zero numeric numbers ("x" and "y").
+##Python
 
-```Python
 def a2_q2(n):
     answer = {}
     answer["sum"] = n["x"] + n["y"]
@@ -10,4 +10,3 @@ def a2_q2(n):
     answer["product"] = n["x"] * n["y"]
     answer["ratio"] = n["x"] / n["y"]
     return answer
-```
