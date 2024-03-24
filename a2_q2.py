@@ -1,12 +1,10 @@
-##### Selecting Language , Changing Function Name
+##### Correcting the function 
 
 ##This function takes one argument with two non-zero numeric numbers ("x" and "y").
 ##Python
 
 def a2_q2(n):
     answer = {}
-    answer["sum"] = n["x"] + n["y"]
-    answer["difference"] = n["x"] - n["y"]
-    answer["product"] = n["x"] * n["y"]
-    answer["ratio"] = n["x"] / n["y"]
+    answer["power_xy"] = pow (n["x"],n["y"]) 
+    answer["power_yx"] = pow (n["y"],n["x"])
     return answer
