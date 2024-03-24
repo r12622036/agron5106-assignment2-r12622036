@@ -9,7 +9,7 @@ def a2_q2(n):
     answer["power_yx"] = pow (n["y"],n["x"])
     answer["repeat_x_times"]= "x"*n["x"]
     answer["repeat_y_times"]=str(n["y"])*n["y"]
-    for key, value in (n):
+    for key, value in n.items:
         if key == "x":
             xth_alphabet = chr(ord('a')+value-1)
         elif key == "y":
