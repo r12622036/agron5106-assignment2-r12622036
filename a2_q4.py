@@ -1,6 +1,7 @@
 #This function will divide the input into two groups of equal sizes, where the difference between the sums of each group is minimised
 #Adding the difference equation into the diff_num function 
-#Adding the return as the previous function didn't have any return 
+#Adding the return as the previous function didn't have any return
+#Changing the form of return, instead of return three variables the assignment requires the return should be in a list form  
 def diff_num(x:list):
     group_1=[]
     group_2=[]
@@ -10,4 +11,4 @@ def diff_num(x:list):
     for i in range(length_x//2,length_x):
         group_2.append(x[i])
     diff= abs(sum(group_1)-sum(group_2))
-    return group_1,group_2,diff 
+    return {'group1':group_1,'group2':group_2,'diff':diff} 
