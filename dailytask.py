@@ -1,8 +1,10 @@
-##First task 
-##Categorizing Companies by Fluctuations of 10%, 20%, or More Than 20%
-##To sort the companies based on different fluctuations, we need to have a function that calculates the fluctuations between today's and yesterday's stock rates. Both rates should represent the closing rates at the end of the market session.
-#data given should be in this form 
-#data={"company_x":(yesterday_y,today_y),"company_y":(yesterday_y,today_y),"company_z":(yesterday_y,today_y)}
+##Second task 
+##Make buy or sell decisions based on the fluctuations
+##To make the decision, there are rules we need to follow
+#if the company are in category "0-10%", whether the fluctuation is positive or negative, the decision will be buying in 
+#if the company are in category "10-20%", for negative fluctuation:"buy in", for positive fluctuation:"hold"
+#if the company are in category "Above 20%" for negative flucuation:"sell", for positive fluctuation:"hold"
+#data should be in the form given by the return of first function  
 
 def dailytask_1(data:dict):
     result={}
@@ -16,6 +18,24 @@ def dailytask_1(data:dict):
             result[x]={"Fluctuation":fluctuation,"Category":"Above 20%"}
     return result
 
+def decisions(data:dict):
+    decisions = {}
+    for x, info in data.items():
+        fluctuation = info["Fluctuation"]
+        category = info["Category"]
+        if category == "0-10%":
+            decisions[x] = "Buy"
+        elif category == "10-20%":
+            if fluctuation < 0:
+                decisions[x] = "Buy"
+            else: 
+                decisions[x] = "Hold"
+        else:
+            if fluctuation < 0:
+                decisions[x] = "Sell"
+            else:
+                decisions[x] = "Hold"
+    return decisions
         
 
 
