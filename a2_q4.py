@@ -1,14 +1,33 @@
-#This function will divide the input into two groups of equal sizes, where the difference between the sums of each group is minimised
-#Adding the difference equation into the diff_num function 
-#Adding the return as the previous function didn't have any return
-#Changing the form of return, instead of return three variables the assignment requires the return should be in a list form  
-def diff_num(x:list):
-    group_1=[]
-    group_2=[]
-    length_x = len(x)
-    for i in range(length_x//2):
-        group_1.append(x[i])
-    for i in range(length_x//2,length_x):
-        group_2.append(x[i])
-    diff= abs(sum(group_1)-sum(group_2))
-    return {'group1':group_1,'group2':group_2,'diff':diff} 
+#As I misunderstood the question given, so I rewrite the functions for the question required.
+#Which the first funtion is the read the input and create different combinations
+#And the for loop is to find the minimum difference between these combinations 
+def a2_q4(elements):
+    def generate_combinations(elements, k):
+        if k == 0:
+            yield ()
+        elif len(elements) == k:
+            yield tuple(elements)
+        else:
+            for combo in generate_combinations(elements[1:], k - 1):
+                yield (elements[0],) + combo
+            for combo in generate_combinations(elements[1:], k):
+                yield combo
+
+    n = len(elements)
+    k = n // 2
+    min_diff = float('inf')
+    min_combination = None
+
+    for combo in generate_combinations(elements, k):
+        group1 = set(combo)
+        group2 = set(elements) - group1
+        diff = abs(sum(group1) - sum(group2))
+        if diff < min_diff:
+            min_diff = diff
+            min_combination = (group1, group2)
+
+    result = {'group1': list(min_combination[0]),
+              'group2': list(min_combination[1]),
+              'diff': min_diff}
+    
+    return result
